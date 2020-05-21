@@ -16,11 +16,13 @@ public class DragonFight {
 		// 1. Create some variables to hold health levels
 		
 			// playerHealth to store your health - set it equal to 100
-	
+	int playerHealth = 100;
+	int dragonHealth = 100;
 			// dragonHealth to store the dragon's health - set it equal to 100
 
 		// 2. Create some variables to hold the attack strengths. These will be given different values later. 
-		
+		int playerAttack = 0;
+		int dragonAttack = 0;
 			// playerAttack to store the damage the player's attack will do - set it equal
 			// to 0 for now.
 	
@@ -35,10 +37,19 @@ public class DragonFight {
 
 				// 3. Ask the player in a pop-up if they want to attack the dragon with a yell
 				// or a kick
-	
+	String yellOrkick = JOptionPane.showInputDialog("Do you want to attack with a yell or kick?");
 				// 4. If they typed in "yell":
-	
-					// -- Find a random number between 0 and 10 and store it in playerAttack. Use
+	if (yellOrkick.equalsIgnoreCase ("yell") ) {
+		int random = ran.nextInt(11);
+		playerAttack = playerAttack + random;
+		dragonHealth = dragonHealth - random;
+	}
+	if (yellOrkick.equalsIgnoreCase ("kick") ) {
+		int random1 = ran.nextInt(26);
+		playerAttack = playerAttack + random1;
+		dragonHealth = dragonHealth - random1;
+	}
+ 					// -- Find a random number between 0 and 10 and store it in playerAttack. Use
 					// ran.nextInt(10)
 		
 					// -- Subtract the player attack value from the dragon's health
@@ -50,13 +61,23 @@ public class DragonFight {
 					// -- Subtract the player attack value from the dragon's health
 
 			// THE DRAGON RETALIATES
-
+	int random2 = ran.nextInt(36);
+	dragonAttack = dragonAttack + random2;
+	playerHealth = playerHealth - random2;
 				// 6. Find a random number between 0 and 35 and store it in dragonAttack
 	
 				// 7. Subtract the dragon attack value from the player's health
 
 			// ASSESS THE DAMAGE CAUSED 
-
+	if (playerHealth <= 0) {
+		playerLost();
+	}
+	else if (dragonHealth <= 0) {
+		dragonLost();
+	}
+	JOptionPane.showMessageDialog(null, "Player's Health = " + playerHealth);
+	System.out.println();
+	JOptionPane.showMessageDialog(null, "Dragon Health = " + dragonHealth);
 				// 8. If the player's health is less than or equal to 0
 				// call the playerLost() method
 	
