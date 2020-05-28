@@ -61,7 +61,7 @@ public class DragonFight {
 					// -- Subtract the player attack value from the dragon's health
 
 			// THE DRAGON RETALIATES
-	int random2 = ran.nextInt(36);
+	int random2 = ran.nextInt(5);
 	dragonAttack = dragonAttack + random2;
 	playerHealth = playerHealth - random2;
 				// 6. Find a random number between 0 and 35 and store it in dragonAttack
@@ -99,14 +99,14 @@ public class DragonFight {
 
 	static void playerLost() {
 		// 11. Tell the player that they have been defeated by the dragon and have no treasure
-
+		JOptionPane.showMessageDialog(null, "You have been defeated by the dragon and have no treasure");
 
 		System.exit(0);   //This code ends the program
 	}
 
 	static void dragonLost() {
 		// 12. Tell the user that the dragon has been defeated and they get a ton of gold!
-
+		JOptionPane.showMessageDialog(null, "You have defeated the dragon and get a ton of gold!");
 		System.exit(0);   //This code ends the program
 	}
 
